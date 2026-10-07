@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Central Gualeguaychú</title>
+    <link
+      rel="stylesheet"
+      href="data:text/css;base64,OnJvb3R7CiAgLS1iZzojZjJmNGY3OyAtLXBhcGVyOiNmZmZmZmY7IC0tYmx1ZTojMGQyZWEzOyAtLWJvcmRlcjojYzlkMGQ5OyAtLWJvcmRlci1kYXJrOiM5YWE1YjU7CiAgLS10ZXh0OiMxYTFmMmI7IC0tbXV0ZWQ6IzZiNzY4NzsKfQoqe2JveC1zaXppbmc6Ym9yZGVyLWJveDsgZm9udC1mYW1pbHk6IkNvdXJpZXIgTmV3IiwgQ291cmllciwgbW9ub3NwYWNlO30KYm9keXttYXJnaW46MDtiYWNrZ3JvdW5kOnZhcigtLWJnKTtjb2xvcjp2YXIoLS10ZXh0KTtmb250LXNpemU6MTNweDtsaW5lLWhlaWdodDoxLjM7fQpidXR0b257Y3Vyc29yOnBvaW50ZXI7Zm9udC1mYW1pbHk6aW5oZXJpdDt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7bGV0dGVyLXNwYWNpbmc6MC41cHg7fQppbnB1dHtmb250LWZhbWlseTppbmhlcml0O30KLmxvZ297d2lkdGg6MzhweDtoZWlnaHQ6MzhweDtiYWNrZ3JvdW5kOnZhcigtLWJsdWUpO2NvbG9yOiNmZmY7ZGlzcGxheTpncmlkO3BsYWNlLWl0ZW1zOmNlbnRlcjtmb250LXdlaWdodDo5MDA7Zm9udC1zaXplOjE0cHg7Ym9yZGVyOjFweCBzb2xpZCAjMDAwO30KLnRvcGJhcntkaXNwbGF5OmZsZXg7anVzdGlmeS1jb250ZW50OnNwYWNlLWJldHdlZW47YWxpZ24taXRlbXM6Y2VudGVyO3BhZGRpbmc6MTBweCAxNHB4O2JhY2tncm91bmQ6dmFyKC0tcGFwZXIpO2JvcmRlci1ib3R0b206MnB4IHNvbGlkIHZhcigtLWJvcmRlcik7Z2FwOjEwcHg7ZmxleC13cmFwOndyYXA7fQouYnJhbmR7ZGlzcGxheTpmbGV4O2dhcDoxMHB4O2FsaWduLWl0ZW1zOmNlbnRlcjt9Ci5icmFuZCBoMXttYXJnaW46MDtmb250LXNpemU6MThweDtsZXR0ZXItc3BhY2luZzotMC41cHg7fQouYnJhbmQgc21hbGx7ZGlzcGxheTpibG9jaztmb250LXNpemU6MTBweDtjb2xvcjp2YXIoLS1tdXRlZCk7bGV0dGVyLXNwYWNpbmc6MXB4O30KLnRvcGluZm97ZGlzcGxheTpmbGV4O2dhcDo4cHg7YWxpZ24taXRlbXM6Y2VudGVyO30KLnBpbGx7Ym9yZGVyOjFweCBzb2xpZCB2YXIoLS1ib3JkZXIpO3BhZGRpbmc6NnB4IDEwcHg7YmFja2dyb3VuZDp2YXIoLS1iZyk7Zm9udC1zaXplOjExcHg7fQouY2FqYXtiYWNrZ3JvdW5kOnZhcigtLWJsdWUpO2NvbG9yOiNmZmY7cGFkZGluZzo2cHggMTRweDtmb250LXdlaWdodDo3MDA7Ym9yZGVyOjJweCBzb2xpZCAjMDAwO2JveC1zaGFkb3c6M3B4IDNweCAwICMwMDA7fQoudGFic3tkaXNwbGF5OmZsZXg7Z2FwOjA7bWF4LXdpZHRoOjEyMjBweDttYXJnaW46MThweCBhdXRvIDA7cGFkZGluZzowIDE2cHg7fQoudGFie3BhZGRpbmc6MTJweCAxOHB4O2JvcmRlcjoxcHggc29saWQgdmFyKC0tYm9yZGVyKTtib3JkZXItYm90dG9tOm5vbmU7YmFja2dyb3VuZDojZTllY2YwO2NvbG9yOnZhcigtLWJsdWUpO2ZvbnQtd2VpZ2h0OjcwMDtjdXJzb3I6cG9pbnRlcjtkaXNwbGF5OmZsZXg7Z2FwOjhweDthbGlnbi1pdGVtczpjZW50ZXI7fQoudGFiLmFjdGl2ZXtiYWNrZ3JvdW5kOnZhcigtLXBhcGVyKTtib3JkZXItdG9wOjNweCBzb2xpZCB2YXIoLS1ibHVlKTtjb2xvcjp2YXIoLS10ZXh0KTtwb3NpdGlvbjpyZWxhdGl2ZTt0b3A6MXB4O3otaW5kZXg6Mjt9Ci50YWIgc3Bhbntmb250LXNpemU6MTBweDtiYWNrZ3JvdW5kOiNkZGQ7cGFkZGluZzoxcHggNXB4O2NvbG9yOiM1NTU7fQoud3JhcHttYXgtd2lkdGg6MTIyMHB4O21hcmdpbjowIGF1dG87cGFkZGluZzowIDE2cHggODBweDt9Ci5jYXJke2JhY2tncm91bmQ6dmFyKC0tcGFwZXIpO2JvcmRlcjoxcHggc29saWQgdmFyKC0tYm9yZGVyKTtib3gtc2hhZG93OjAgMXB4IDAgcmdiYSgwLDAsMCwuMDUpO30KLmNhcmQubmV3e3BhZGRpbmc6MTJweDtib3JkZXI6MnB4IHNvbGlkICNjYmQ1ZTE7bWFyZ2luLWJvdHRvbToxNHB4O21hcmdpbi10b3A6LTFweDt9Ci5jYXJkLm5ldyAudGl0bGV7Zm9udC13ZWlnaHQ6ODAwO2ZvbnQtc2l6ZToxMXB4O2xldHRlci1zcGFjaW5nOjFweDttYXJnaW4tYm90dG9tOjEwcHg7Y29sb3I6dmFyKC0tYmx1ZSk7fQouZm9ybS1yb3d7ZGlzcGxheTpmbGV4O2dhcDo4cHg7ZmxleC13cmFwOndyYXA7YWxpZ24taXRlbXM6ZW5kO30KLmZpZWxke2Rpc3BsYXk6ZmxleDtmbGV4LWRpcmVjdGlvbjpjb2x1bW47Z2FwOjRweDt9Ci5maWVsZCBsYWJlbHtmb250LXNpemU6MTBweDtmb250LXdlaWdodDo3MDA7fQouZmllbGQgaW5wdXR7Ym9yZGVyOjFweCBzb2xpZCB2YXIoLS1ib3JkZXItZGFyayk7cGFkZGluZzo4cHggMTBweDttaW4td2lkdGg6MTYwcHg7YmFja2dyb3VuZDojZmZmO30KLnctY2xpZW50ZXtmbGV4OjEuMn0udy1jbGllbnRlIGlucHV0e3dpZHRoOjEwMCV9LnctZGlye2ZsZXg6MX0udy1kaXIgaW5wdXR7d2lkdGg6MTAwJX0udy1wcmVjaW97d2lkdGg6MTEwcHh9LnctcHJlY2lvIGlucHV0e3dpZHRoOjEwMCV9Ci5idG4tYmx1ZXtiYWNrZ3JvdW5kOnZhcigtLWJsdWUpO2NvbG9yOiNmZmY7Ym9yZGVyOjJweCBzb2xpZCAjMDAwO3BhZGRpbmc6OXB4IDE2cHg7Zm9udC13ZWlnaHQ6ODAwO2JveC1zaGFkb3c6M3B4IDNweCAwICMwMDA7dHJhbnNpdGlvbjouMDVzO30KLmJ0bi1ibHVlOmFjdGl2ZXt0cmFuc2Zvcm06dHJhbnNsYXRlKDJweCwycHgpO2JveC1zaGFkb3c6MXB4IDFweCAwICMwMDA7fQouYnRuLXNte3BhZGRpbmc6NXB4IDEwcHg7Zm9udC1zaXplOjExcHg7Zm9udC13ZWlnaHQ6ODAwO2JvcmRlcjoxcHggc29saWQgIzAwMDt9Ci5idG4tYmxhY2t7YmFja2dyb3VuZDojMGYxNzJhO2NvbG9yOiNmZmY7fQouYnRuLWdyZWVue2JhY2tncm91bmQ6IzE1ODAzZDtjb2xvcjojZmZmO30KLmZpbHRlcnN7ZGlzcGxheTpmbGV4O2dhcDo4cHg7bWFyZ2luOjEwcHggMDthbGlnbi1pdGVtczpjZW50ZXI7ZmxleC13cmFwOndyYXA7fQouZmlsdGVycyAubGJse2ZvbnQtc2l6ZToxMHB4O2NvbG9yOnZhcigtLW11dGVkKTtmb250LXdlaWdodDo3MDA7fQouZmJ0bntib3JkZXI6MXB4IHNvbGlkIHZhcigtLWJvcmRlcik7YmFja2dyb3VuZDp2YXIoLS1wYXBlcik7cGFkZGluZzo2cHggMTBweDtmb250LXNpemU6MTFweDt9Ci5mYnRuLmFjdGl2ZXtiYWNrZ3JvdW5kOiMwZjE3MmE7Y29sb3I6I2ZmZjtib3JkZXItY29sb3I6IzAwMDt9CnRhYmxle3dpZHRoOjEwMCU7Ym9yZGVyLWNvbGxhcHNlOmNvbGxhcHNlO2JhY2tncm91bmQ6dmFyKC0tcGFwZXIpO30KdGh7Zm9udC1zaXplOjEwcHg7dGV4dC1hbGlnbjpsZWZ0O3BhZGRpbmc6MTBweCAxMnB4O2JhY2tncm91bmQ6I2VlZjJmNztib3JkZXItYm90dG9tOjJweCBzb2xpZCB2YXIoLS1ib3JkZXItZGFyayk7bGV0dGVyLXNwYWNpbmc6MC44cHg7Y29sb3I6IzMzNDE1NTt9CnRke3BhZGRpbmc6MTBweCAxMnB4O2JvcmRlci1ib3R0b206MXB4IHNvbGlkICNlNWU3ZWI7Zm9udC1zaXplOjEycHg7dmVydGljYWwtYWxpZ246bWlkZGxlO30KdHI6aG92ZXIgdGR7YmFja2dyb3VuZDojZjhmYWZjO30KLmVzdGFkb3twYWRkaW5nOjNweCA4cHg7Ym9yZGVyOjFweCBzb2xpZDtmb250LXNpemU6MTBweDtkaXNwbGF5OmlubGluZS1ibG9jazttaW4td2lkdGg6NzRweDt0ZXh0LWFsaWduOmNlbnRlcjt9Ci5zdC1wZW5kaWVudGV7YmFja2dyb3VuZDojZmVmM2M3O2JvcmRlci1jb2xvcjojZjU5ZTBiO2NvbG9yOiM5MjQwMGU7fQouc3QtYXNpZ25hZG97YmFja2dyb3VuZDojZGJlYWZlO2JvcmRlci1jb2xvcjojM2I4MmY2O2NvbG9yOiMxZTQwYWY7fQouc3QtdmlhamV7YmFja2dyb3VuZDojZGNmY2U3O2JvcmRlci1jb2xvcjojMjJjNTVlO2NvbG9yOiMxNjY1MzQ7fQouc3QtZmluYWx7YmFja2dyb3VuZDojZjFmNWY5O2JvcmRlci1jb2xvcjojY2JkNWUxO2NvbG9yOiM2NDc0OGI7fQoudGlwe21hcmdpbi10b3A6MTJweDtiYWNrZ3JvdW5kOiNmZmZiZWI7Ym9yZGVyOjFweCBzb2xpZCAjZmJiZjI0O3BhZGRpbmc6OHB4IDEwcHg7Zm9udC1zaXplOjExcHg7Y29sb3I6IzkyNDAwZTt9Ci5mb290e2JvcmRlci10b3A6MnB4IHNvbGlkICNlMmU4ZjA7YmFja2dyb3VuZDojZmZmO3BhZGRpbmc6OHB4IDE0cHg7Zm9udC1zaXplOjlweDtjb2xvcjojOTRhM2I4O2Rpc3BsYXk6ZmxleDtqdXN0aWZ5LWNvbnRlbnQ6c3BhY2UtYmV0d2VlbjtmbGV4LXdyYXA6d3JhcDtnYXA6OHB4O3Bvc2l0aW9uOmZpeGVkO2JvdHRvbTowO2xlZnQ6MDtyaWdodDowO30KLmhpZGRlbntkaXNwbGF5Om5vbmUgIWltcG9ydGFudDt9Ci8qIGxvZ2luICovCi5sb2dpbi13cmFwe21pbi1oZWlnaHQ6MTAwdmg7ZGlzcGxheTpncmlkO3BsYWNlLWl0ZW1zOmNlbnRlcjtwYWRkaW5nOjE2cHg7YmFja2dyb3VuZDp2YXIoLS1iZyk7fQoubG9naW4tYm94e3dpZHRoOjEwMCU7bWF4LXdpZHRoOjQwMHB4O2JhY2tncm91bmQ6dmFyKC0tcGFwZXIpO2JvcmRlcjoycHggc29saWQgIzAwMDtib3gtc2hhZG93OjZweCA2cHggMCAjMDAwO3BhZGRpbmc6MjJweDt9Ci5sb2dpbi1ib3ggaDJ7bWFyZ2luOjAgMCA0cHg7Zm9udC1zaXplOjE4cHg7fQoubG9naW4tYm94IHB7bWFyZ2luOjAgMCAxNHB4O2NvbG9yOnZhcigtLW11dGVkKTtmb250LXNpemU6MTFweDt9Ci5sb2dpbi1ib3ggaW5wdXR7d2lkdGg6MTAwJTtib3JkZXI6MXB4IHNvbGlkIHZhcigtLWJvcmRlci1kYXJrKTtwYWRkaW5nOjExcHg7bWFyZ2luLWJvdHRvbToxMHB4O30KLmxvZ2luLWhpbnR7Zm9udC1zaXplOjEwcHg7YmFja2dyb3VuZDojZjFmNWY5O3BhZGRpbmc6OHB4O2JvcmRlcjoxcHggZGFzaGVkICM5NGEzYjg7bWFyZ2luLXRvcDo4cHg7bGluZS1oZWlnaHQ6MS40O30KI21vZGFse3Bvc2l0aW9uOmZpeGVkO2luc2V0OjA7YmFja2dyb3VuZDpyZ2JhKDE1LDIzLDQyLC42KTtkaXNwbGF5Om5vbmU7cGxhY2UtaXRlbXM6Y2VudGVyO3otaW5kZXg6NDA7cGFkZGluZzoxNnB4O30KI21vZGFsLm9wZW57ZGlzcGxheTpncmlkO30KLm1vZGFsLWJveHtiYWNrZ3JvdW5kOiNmZmY7Ym9yZGVyOjJweCBzb2xpZCAjMDAwO2JveC1zaGFkb3c6OHB4IDhweCAwICMwMDA7d2lkdGg6MTAwJTttYXgtd2lkdGg6NTIwcHg7cGFkZGluZzoxNHB4O30KLmNob2Zlci1pdGVte2Rpc3BsYXk6ZmxleDtqdXN0aWZ5LWNvbnRlbnQ6c3BhY2UtYmV0d2VlbjthbGlnbi1pdGVtczpjZW50ZXI7cGFkZGluZzoxMHB4O2JvcmRlcjoxcHggc29saWQgI2UyZThmMDttYXJnaW4tYm90dG9tOjZweDt9Ci5jaG9mZXItaXRlbS5vY3VwYWRve29wYWNpdHk6LjU7YmFja2dyb3VuZDojZjhmYWZjO30KLmRvdHt3aWR0aDo4cHg7aGVpZ2h0OjhweDtkaXNwbGF5OmlubGluZS1ibG9jazttYXJnaW4tcmlnaHQ6NnB4O30KLmRvdC5mcmVle2JhY2tncm91bmQ6IzIyYzU1ZX0uZG90LmJ1c3l7YmFja2dyb3VuZDojZjU5ZTBifS5kb3Qub2Zme2JhY2tncm91bmQ6Izk0YTNiOH0KQG1lZGlhKG1heC13aWR0aDo3MjBweCl7LmZvcm0tcm93e2ZsZXgtZGlyZWN0aW9uOmNvbHVtbjthbGlnbi1pdGVtczpzdHJldGNofS53LWRpciwudy1jbGllbnRlLC53LXByZWNpb3t3aWR0aDoxMDAlfS50YWJze292ZXJmbG93OmF1dG99LnRvcGJhcntmbGV4LWRpcmVjdGlvbjpjb2x1bW47YWxpZ24taXRlbXM6c3RhcnR9fQo="
+    />
+  </head>
+  <body>
+    <div class="login-wrap">
+      <div class="login-box">
+        <div
+          style="
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 16px;
+          "
+        >
+          <div class="logo">GCHU</div>
+          <div>
+            <b>CENTRAL GUALEGUAYCHÚ</b><br /><small
+              style="font-size: 10px; color: #64748b"
+              >SISTEMA V2.4.1 • MODO LOCAL • SIN CONEXIÓN EXTERNA</small
+            >
+          </div>
+        </div>
+        <h2>[ LOGIN OPERADOR ]</h2>
+        <p>Sistema viejo escuela - todo manual. Ingresar credenciales.</p>
+
+        <input id="luser" placeholder="USUARIO" autocomplete="username" />
+        <input
+          id="lpass"
+          type="password"
+          placeholder="CLAVE"
+          autocomplete="current-password"
+        />
+        <button class="btn-blue" style="width: 100%" id="btnLogin">
+          [ ENTRAR AL SISTEMA ]
+        </button>
+
+        <div
+          id="loginErr"
+          style="
+            color: #b91c1c;
+            font-size: 11px;
+            margin-top: 10px;
+            display: none;
+          "
+        >
+          USUARIO O CLAVE INCORRECTO
+        </div>
+
+        <div class="login-hint">
+          <b>CUENTAS DE PRUEBA:</b><br />
+          • <b>admin / admin</b> → ADMIN (caja completa)<br />
+          • <b>operador / 1234</b> → TURNO TARDE<br />
+          • Cualquier otro → INVITADO<br /><br />
+          Guardado en localStorage: <code>gchu_rol</code> y
+          <code>gchu_user</code>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // login.js inline para que sea independiente
+      const btn = document.getElementById("btnLogin");
+      function doLogin() {
+        const u = document.getElementById("luser").value.trim();
+        const p = document.getElementById("lpass").value.trim();
+        if (!u || !p) {
+          showErr("COMPLETE USUARIO Y CLAVE");
+          return;
+        }
+
+        let rol = "INVITADO";
+        if (u.toLowerCase() === "admin" && p === "admin") rol = "ADMIN";
+        else if (u.toLowerCase() === "operador" && p === "1234") rol = "TURNO";
+        else if (u.length >= 2) rol = u.toUpperCase();
+        else {
+          showErr("USUARIO MUY CORTO");
+          return;
+        }
+
+        localStorage.setItem("gchu_rol", rol);
+        localStorage.setItem("gchu_user", u);
+        localStorage.setItem("gchu_login_at", new Date().toISOString());
+        window.location.href = "admin.html";
+      }
+      function showErr(msg) {
+        const el = document.getElementById("loginErr");
+        el.textContent = msg;
+        el.style.display = "block";
+      }
+      btn.addEventListener("click", doLogin);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") doLogin();
+      });
+
+      // si ya está logueado, saltar directo
+      if (localStorage.getItem("gchu_rol")) {
+        // opcional: si querés que no salte, comenta esto
+        // window.location.href='admin.html';
+      }
+    </script>
+  </body>
+</html>

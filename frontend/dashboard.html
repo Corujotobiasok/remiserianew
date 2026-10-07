@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Central Gualeguaychú - Panel Admin</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier New", monospace;
+      }
+      body {
+        background: #eef0f3;
+        color: #111;
+      }
+      header {
+        background: white;
+        border-bottom: 2px solid #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo b {
+        background: #0a1a6b;
+        color: white;
+        padding: 8px 6px;
+        font-size: 14px;
+      }
+      .tabs {
+        display: flex;
+        gap: 5px;
+        margin: 25px auto 0;
+        max-width: 1050px;
+        padding: 0 15px;
+      }
+      .tab {
+        border: 1px solid #999;
+        border-bottom: none;
+        padding: 8px 18px;
+        background: #e5e5e5;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .tab.active {
+        background: white;
+        border-top: 3px solid #0a1a6b;
+        border-bottom: 1px solid white;
+        position: relative;
+        top: 1px;
+      }
+      .tab span {
+        background: #d0d0d0;
+        padding: 1px 5px;
+        margin-left: 6px;
+        font-size: 11px;
+      }
+      main {
+        max-width: 1050px;
+        margin: 0 auto;
+        background: white;
+        border: 1px solid #999;
+        padding: 20px;
+      }
+      .top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .pill {
+        border: 1px solid #111;
+        padding: 6px 10px;
+        background: white;
+        font-size: 12px;
+      }
+      .pill.blue {
+        background: #0a1a6b;
+        color: white;
+        border-color: #0a1a6b;
+        font-weight: bold;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .card {
+        border: 1px solid #111;
+        padding: 10px;
+        background: white;
+      }
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+      .card-head b {
+        font-size: 13px;
+      }
+      .st {
+        font-size: 10px;
+        border: 1px solid #111;
+        padding: 2px 6px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+      }
+      .dot.green {
+        background: #00b300;
+      }
+      .dot.orange {
+        background: orange;
+      }
+      .dot.gray {
+        background: gray;
+      }
+      .sub {
+        font-size: 11px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+      .actions {
+        display: flex;
+        gap: 4px;
+      }
+      .actions button {
+        font-size: 10px;
+        padding: 4px 6px;
+        border: 1px solid #888;
+        background: #f5f5f5;
+        cursor: pointer;
+      }
+      .actions button.active {
+        border-color: #111;
+        background: #111;
+        color: white;
+      }
+      input {
+        border: 1px solid #111;
+        padding: 7px;
+        font-size: 12px;
+      }
+      .btn-blue {
+        background: #0a1a6b;
+        color: white;
+        border: 1px solid #0a1a6b;
+        padding: 7px 14px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <b>GCHU</b>
+        <div>
+          <div style="font-weight: bold; font-size: 14px">
+            Central Gualeguaychú - Panel Admin
+          </div>
+          <div style="font-size: 10px; color: #666">
+            SISTEMA V2.5 TAXIMETRO • SOLO ORIGEN • $500 base + $1800/km
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <div class="pill" id="fecha"></div>
+        <div class="pill blue" id="caja">CAJA DEL DÍA: $0</div>
+        <div class="pill">
+          OPERADOR: ADMIN
+          <a href="#" onclick="logout()" style="margin-left: 8px">[ SALIR ]</a>
+        </div>
+      </div>
+    </header>
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('choferes')">
+        [ CHOFERES ] <span id="count-choferes">0</span>
+      </div>
+      <div class="tab" onclick="switchTab('pedidos')">
+        [ PEDIDOS ] <span id="count-pedidos">0</span>
+      </div>
+      <div class="tab" onclick="switchTab('caja')">
+        [ CAJA DIARIA ] <span id="count-caja">$0</span>
+      </div>
+    </div>
+    <main>
+      <div id="view-choferes">
+        <div class="top-row">
+          <b>■ LISTADO DE CHOFERES</b>
+          <div>
+            <input
+              id="search"
+              placeholder="Nombre o móvil"
+              oninput="filtrar()"
+            /><button class="btn-blue" onclick="crearChoferPrompt()">
+              [ + CHOFER ]
+            </button>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+      <div id="view-pedidos" style="display: none">
+        <div class="top-row">
+          <b>■ NUEVO PEDIDO - TAXIMETRO (Solo Origen)</b>
+        </div>
+        <div
+          style="
+            border: 1px solid #111;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: white;
+          "
+        >
+          <input id="p_cliente_nombre" placeholder="Cliente nombre" />
+          <input id="p_cliente_telefono" placeholder="Cliente WhatsApp" />
+          <input
+            id="p_origen"
+            placeholder="Origen - Ej: Urquiza 1200, Gualeguaychú"
+            style="grid-column: span 2"
+          />
+          <div
+            style="
+              grid-column: span 2;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 10px;
+            "
+          >
+            <input id="p_origen_lat" placeholder="Lat (opcional)" />
+            <input id="p_origen_lng" placeholder="Lng (opcional)" />
+          </div>
+          <button
+            class="btn-blue"
+            onclick="crearPedido()"
+            style="
+              background: #000;
+              font-weight: bold;
+              grid-column: span 2;
+              padding: 12px;
+              color: white;
+              border: 1px solid #111;
+              cursor: pointer;
+            "
+          >
+            [ ENVIAR A CHOFERES EN LINEA ]
+          </button>
+          <div style="grid-column: span 2; font-size: 10px; color: #666">
+            El precio se calcula con taxímetro: $500 base + $1800 x km. El
+            chofer marca A BORDO y FINALIZAR.
+          </div>
+        </div>
+        <b>■ PEDIDOS DE HOY - TAXIMETRO</b>
+        <div style="overflow: auto">
+          <table
+            border="1"
+            cellpadding="8"
+            style="
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 10px;
+              font-size: 12px;
+              background: white;
+            "
+          >
+            <thead style="background: #111; color: white">
+              <tr>
+                <th>Hora</th>
+                <th>Cliente</th>
+                <th>Origen</th>
+                <th>KM / Precio Final</th>
+                <th>Chofer</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-pedidos"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="view-caja" style="display: none">
+        <b>■ CAJA DIARIA</b>
+        <p style="margin-top: 20px" id="detalle-caja"></p>
+      </div>
+    </main>
+    <script src="dashboard.js"></script>
+  </body>
+</html>
